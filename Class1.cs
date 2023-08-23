@@ -8,8 +8,25 @@ namespace ExpendedoraG2_2024_I
         #region Atributos
         private string marca;
         private ushort cantproductos; //432 productos por lo que se eligio ushort
+        private byte temperatura; //Inicio de tema de ocultacion, linea 81 Click derecho y encapsular con acciones rapidas a la variable para crear parte del codigo de la region Propiedades
         private float precio;
+
         #endregion
+
+        #region Propiedades
+        public byte Temperatura
+        {
+            get => temperatura;
+            set
+            {
+                if (0 < value && value < 25)
+                    temperatura = value;
+                else
+                    temperatura = 20;
+            }
+
+        }
+        #endregion  
 
 
         #region Metodos
@@ -74,9 +91,17 @@ namespace ExpendedoraG2_2024_I
 
         public Expendedora(bool Mantenimiento)
         {
+            Temperatura = 20;
             if (Mantenimiento == true)
                 Console.WriteLine("Entrando en modo mantenimiento");
+            Console.WriteLine("Cambiando temperatura");
+            LimpiarDisplay();
+            for (int i = 0; i < 20; i++)
+            {
+                Temperatura++;
+            }
 
+            Console.WriteLine("Mostrando Temperatura {0} [°C]" , Temperatura); 
         }
         #endregion
 
