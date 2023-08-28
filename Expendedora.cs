@@ -3,7 +3,7 @@ using System.Threading; //linea 32
 
 namespace ExpendedoraG2_2024_I
 {
-    internal class Expendedora
+    internal abstract class Expendedora //Cuando la clase padre unicamene se utiliza para mandar a llamar a sus subclases entonces se le agrega el nombre de abstract
     {
         #region Atributos
         private string marca;
@@ -26,17 +26,19 @@ namespace ExpendedoraG2_2024_I
             }
 
         }
-        #endregion  
+
+        public string Marca { get => marca; set => marca = value; }
+        #endregion
 
 
         #region Metodos
-        private void Saludar()
+        public void Saludar()
         {
             Console.WriteLine("Bienvenido, elige un producto");
 
         }
 
-        private void LimpiarDisplay()
+        public void LimpiarDisplay()
         {
             Thread.Sleep(2000); //Como que distrae al procesador para retrasar la siguiente linea
             Console.Clear();
@@ -71,21 +73,13 @@ namespace ExpendedoraG2_2024_I
         #region Constructor
         public Expendedora()
         {
-            marca = "AMS";
+            Marca = "AMS";
             precio = 18;
             Saludar();
 
             LimpiarDisplay(); //Se creo un metodo en la linea 23 para reutilizar codigo
 
-            Console.WriteLine("Marca: {0}", marca);
-
-            Saludar();
-
-            LimpiarDisplay();
-
-            string codigo = MostrarProducto();
-            LimpiarDisplay();
-            MostrarPrecio(codigo);
+            
 
         }
 
