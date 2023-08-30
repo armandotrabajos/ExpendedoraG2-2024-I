@@ -7,7 +7,12 @@ namespace ExpendedoraG2_2024_I
     {
         public Snack()
         {
-            Saludar(); //No nos dejaba antes porque estaba en private, lo cambiamos a public, public lo puedo utilizar en cualquier clase, private se utiliza unicamente en la clase que esta 
+            Saludar();
+            Console.WriteLine("Marca: {0}", Marca);
+            LimpiarDisplay();
+            string codigo = MostrarProducto();
+            LimpiarDisplay();
+            MostrarPrecio(codigo);
         }
     }
 }
